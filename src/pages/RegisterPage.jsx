@@ -1,36 +1,31 @@
-import React, { useState } from 'react';
 
-const RegisterPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import "../App.css";  // Import CSS
 
-  const handleRegister = (e) => {
-    e.preventDefault();
-    if (email && password) {
-      alert('Registration successful!');
-    } else {
-      alert('Please fill out all fields.');
-    }
+const Register = ({ setIsLoggedIn }) => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleRegister = async () => {
+    await axios.post("http://localhost:3000/register", { username, email, password });
+    localStorage.setItem("username", username);
+    setIsLoggedIn(true);
+    navigate("/home");
   };
 
   return (
-    <form onSubmit={handleRegister}>
+    <div className="container">
       <h2>Register</h2>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button type="submit">Register</button>
-    </form>
+      <input type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
+      <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+      <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+      <button onClick={handleRegister}>Register</button>
+    </div>
   );
 };
 
-export default RegisterPage;
+export default Register;

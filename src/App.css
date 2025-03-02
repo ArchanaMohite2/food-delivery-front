@@ -1,42 +1,71 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* ==== Login Page Styles ==== */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #ff6f61, #de3c4b);
+}
+
+.login-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* ==== Home Page Styles ==== */
+.home-container {
+  padding: 20px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.product-list {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.product-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px #ccc;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.cart-btn {
+  background: orange;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
 }
 
-.card {
-  padding: 2em;
+/* ==== Cart Page Styles ==== */
+.cart-container {
+  padding: 20px;
+  text-align: center;
 }
 
-.read-the-docs {
-  color: #888;
+.cart-item {
+  background: #f8f8f8;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.order-btn {
+  background: green;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
 }
